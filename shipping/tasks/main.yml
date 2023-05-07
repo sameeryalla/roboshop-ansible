@@ -1,0 +1,3 @@
+- name : Demo on shipping
+  ansible.builtin.debug:
+    msg: shipping module

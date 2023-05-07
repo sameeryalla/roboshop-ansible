@@ -1,0 +1,3 @@
+- name : Demo on Payment
+  ansible.builtin.debug:
+    msg: Payment module

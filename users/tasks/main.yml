@@ -1,0 +1,3 @@
+- name : Demo on user
+  ansible.builtin.debug:
+    msg: cart user
