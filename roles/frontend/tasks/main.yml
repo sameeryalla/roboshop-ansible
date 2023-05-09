@@ -26,7 +26,7 @@
 - name: Unarchive a file that needs to be downloaded
   ansible.builtin.unarchive:
     src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
-    dest: /user/share/nginx/html
+    dest: /usr/share/nginx/html
     remote_src: yes
 
 - name: Restart service nginx
