@@ -1,3 +1,5 @@
-- name : Demo on user
-  ansible.builtin.debug:
-    msg: user module
+- name: import common nodeJS for user
+  ansible.builtin.import_role:
+    name: common
+    task_from: nodejs
+

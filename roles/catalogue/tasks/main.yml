@@ -1,3 +1,5 @@
-- name : Demo on catalogue
-  ansible.builtin.debug:
-    msg: catlogue module
+- name: import common nodeJS for catalogue
+  ansible.builtin.import_role:
+    name: common
+    task_from: nodejs
+

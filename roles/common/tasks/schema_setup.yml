@@ -1,14 +1,17 @@
-- name: Mongo repo file
-  ansible.builtin.copy:
-    src: mongo.repo
-    dest: /etc/yum.repos.d/mongo.repo
+- name: Load MongoDB schema
+  when: schema_setup == "mongo"
+  block:
+    - name: Mongo repo file
+      ansible.builtin.copy:
+        src: mongo.repo
+        dest: /etc/yum.repos.d/mongo.repo
 
-- name: install Mongodb client
-  ansible.builtin.yum:
-    name: mongodb-org-shell
-    state: installed
 
-- name: load schema
-  ansible.builtin.shell: mongo --host mongodb.sameerdevops.online </app/schema/{{component}}.js
+    - name: install Mongodb client
+      ansible.builtin.yum:
+        name: mongodb-org-shell
+        state: installed
 
+    - name: load schema
+      ansible.builtin.shell: mongo --host {{lookup('aws_ssm','catalogue.mongodb_endpoint',region='us-east-1')}} </app/schema/{{component}}.js
 
