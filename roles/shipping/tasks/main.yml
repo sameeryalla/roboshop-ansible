@@ -1,3 +1,4 @@
-- name : Demo on shipping
-  ansible.builtin.debug:
-    msg: shipping module
+- name : Import common java
+  ansible.builtin.import_task:
+    name: common
+    tasks_from: java.yml
