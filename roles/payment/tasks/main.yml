@@ -1,3 +1,4 @@
-- name : Demo on Payment
-  ansible.builtin.debug:
-    msg: Payment module
+- name : import common python
+  ansible.builtin.import-role:
+    name: common
+    tasks_from: python.yml
