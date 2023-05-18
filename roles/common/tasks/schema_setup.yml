@@ -13,7 +13,7 @@
         state: installed
 
     - name: load schema
-      ansible.builtin.shell: mongo --host {{lookup('aws_ssm','catalogue.mongodb_endpoint',region='us-east-1')}} </app/schema/{{component}}.js
+      ansible.builtin.shell: mongo --host {{lookup('aws_ssm','dev.catalogue.mongodb_endpoint',region='us-east-1')}} </app/schema/{{component}}.js
 
 
 - name: Load MySQL schema
