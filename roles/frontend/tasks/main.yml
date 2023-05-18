@@ -34,3 +34,8 @@
     name: nginx
     state: restarted
     enabled: yes
+
+- name: Install file beat
+  ansible.builtin.import_role:
+    name: elk
+    tasks_from: filebeat
