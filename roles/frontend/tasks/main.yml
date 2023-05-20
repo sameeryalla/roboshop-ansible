@@ -40,7 +40,7 @@
     state: restarted
     enabled: yes
 
-- name: Install file beat
+- name: Install filebeat
   ansible.builtin.import_role:
     name: elk
     tasks_from: filebeat
