@@ -18,4 +18,4 @@ setup.template.settings:
 
 processors:
   -drop_fields:
-    fields:["agent.ephemeral_id","agent.hostname","agent.id","agent.type","agent.version","ecs.version","version","log.offset"]
+    fields:["agent.ephemeral_id","agent.hostname","agent.id","agent.type","agent.version","ecs.version","version","log.offset","agent.name"]
