@@ -8,10 +8,15 @@
     name: nginx
     enabled: yes
 
-- name: Roboshop config file
+- name: Copy Roboshop config file
   ansible.builtin.template:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
+
+- name: Copy Nginx config file
+  ansible.builtin.template:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf/nginx.conf
 
 - name: Clean old app content
   ansible.builtin.file:
