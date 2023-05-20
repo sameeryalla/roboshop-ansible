@@ -16,7 +16,7 @@
 - name: Copy Nginx config file
   ansible.builtin.template:
     src: nginx.conf
-    dest: /etc/nginx/nginx.conf/nginx.conf
+    dest: /etc/nginx/nginx.conf
 
 - name: Clean old app content
   ansible.builtin.file:
