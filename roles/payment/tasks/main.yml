@@ -1,5 +1,5 @@
 - name : import common python
-  ansible.builtin.import-role:
+  ansible.builtin.import_role:
     name: common
     tasks_from: python
 
