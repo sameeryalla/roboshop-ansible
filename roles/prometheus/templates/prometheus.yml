@@ -23,5 +23,6 @@ scrape_configs:
     static_configs:
       - targets: ["localhost:9090"]
   - job_name: "EC2-Nodes"
-    static_configs:
-      - targets: [ "172.31.92.32:9100" ]
+    ec2_sd_configs:
+      - region: us-east-1
+        port: 9100
