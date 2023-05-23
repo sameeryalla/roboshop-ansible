@@ -4,8 +4,9 @@
     state: installed
 
 - name: Include app prereq
-  ansible.builtin.import_taks:
-    file: app_prereq.yml
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app_prereq
 
 - name: Download maven dependencies
   ansible.builtin.shell: mvn clean package ; mv target/{{component}}-1.0.jar {{component}}.jar
