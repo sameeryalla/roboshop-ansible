@@ -1,7 +1,7 @@
 - name : Import common java
   ansible.builtin.import_task:
     name: common
-    tasks_from: java.yml
+    tasks_from: java
 
 - name: Install Node Exporter
   ansible.builtin.import_role:

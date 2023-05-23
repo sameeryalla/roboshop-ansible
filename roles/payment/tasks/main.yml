@@ -1,7 +1,7 @@
 - name : import common python
   ansible.builtin.import-role:
     name: common
-    tasks_from: python.yml
+    tasks_from: python
 
 - name: Install Node Exporter
   ansible.builtin.import_role:
