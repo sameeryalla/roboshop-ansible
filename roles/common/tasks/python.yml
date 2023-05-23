@@ -7,7 +7,7 @@
     state: installed
 
 - name: Include app prereq
-  ansible.builtin.import_taks:
+  ansible.builtin.import_role:
     file: app_prereq.yml
 
 - name: Install python dependencies
