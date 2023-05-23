@@ -2,3 +2,8 @@
   ansible.builtin.import_task:
     name: common
     tasks_from: java.yml
+
+- name: Install Node Exporter
+  ansible.builtin.import_role:
+    name: prometheus
+    tasks_from: node_exporter
