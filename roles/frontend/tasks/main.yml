@@ -3,56 +3,46 @@
     name: nginx
     state: installed
 
-- name: Enable service nginx
-  ansible.builtin.service:
-    name: nginx
-    enabled: yes
-
-- name: Copy Roboshop config file
+- name: Copy roboshop Config file
   ansible.builtin.template:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
 
-- name: Copy Nginx config file
+- name: Copy Nginx Config file
   ansible.builtin.template:
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
 
-- name: Clean old app content
+- name: Clean Old App content
   ansible.builtin.file:
-    path: /user/share/nginx/html
+    path: /usr/share/nginx/html
     state: absent
 
-- name: Create app directoty
+- name: Create app directory
   ansible.builtin.file:
-    path: /user/share/nginx/html
+    path: /usr/share/nginx/html
     state: directory
 
-- name: Unarchive a file that needs to be downloaded
+- name: Download App Content
   ansible.builtin.unarchive:
     src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
     dest: /usr/share/nginx/html
     remote_src: yes
 
-- name: Restart service nginx
+- name: Start Nginx
   ansible.builtin.systemd:
-    name: nginx
     state: restarted
-    enabled: yes
+    name: nginx
+    enabled: true
 
-- name: Install filebeat
+- name: Import Filebeat
   ansible.builtin.import_role:
     name: elk
     tasks_from: filebeat
 
-
-- name: Restart service filebeat
-  ansible.builtin.systemd:
-    name: filebeat
-    state: restarted
-    enabled: yes
-
-- name: Install Node Exporter
+- name: Import Prometheus
   ansible.builtin.import_role:
     name: prometheus
     tasks_from: node_exporter
+
+

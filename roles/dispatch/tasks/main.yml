@@ -1,8 +1,0 @@
-- name : Demo on frontend
-  ansible.builtin.debug:
-    msg: frontend module
-
-- name: Install Node Exporter
-  ansible.builtin.import_role:
-    name: prometheus
-    tasks_from: node_exporter

@@ -1,4 +1,4 @@
-- name: Install python
+- name: Install Python
   ansible.builtin.yum:
     name:
       - python36
@@ -6,20 +6,25 @@
       - python3-devel
     state: installed
 
-- name: Include app prereq
-  ansible.builtin.import_role:
-    name: common
-    tasks_from: app_prereq
+- name: Include app_prerequisites
+  ansible.builtin.import_tasks:
+    file: app_prereq.yml
 
-- name: Install python dependencies
+- name: Install Python Dependencies
   ansible.builtin.shell: pip3.6 install -r requirements.txt
   args:
     chdir: /app
 
-- name: include schema setup
+- name: Include schema setup
   ansible.builtin.import_tasks:
     file: schema_setup.yml
 
-- name: include systemd setup
+- name: Include SystemD
   ansible.builtin.import_tasks:
     file: systemd_setup.yml
+
+- name: Import Prometheus
+  ansible.builtin.import_role:
+    name: prometheus
+    tasks_from: node_exporter
+

@@ -1,9 +1,5 @@
-- name : import common python
+- name: Import Common Python
   ansible.builtin.import_role:
     name: common
     tasks_from: python
 
-- name: Install Node Exporter
-  ansible.builtin.import_role:
-    name: prometheus
-    tasks_from: node_exporter
