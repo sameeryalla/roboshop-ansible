@@ -1,3 +1,4 @@
 component: catalogue
 schema_setup: mongo
+env: dev
 
