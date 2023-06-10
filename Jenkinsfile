@@ -15,7 +15,7 @@ pipeline {
 
     stage('Ansible') {
       steps {
-        sh 'ansible-playbook -i ${component}-${env}.rdevopsb72.online, roboshop.yml -e ansible_user=centos -e ansible_password=DevOps321 -e env=${env} -e role_name=${component}'
+        sh 'ansible-playbook -i ${component}-${env}.sameerdevops.online, roboshop.yml -e ansible_user=centos -e ansible_password=DevOps321 -e env=${env} -e role_name=${component}'
       }
     }
 
